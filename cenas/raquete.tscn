@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj6npjswocfkm"]
+[gd_scene load_steps=4 format=3 uid="uid://cj6npjswocfkm"]
 
 [ext_resource type="Texture2D" uid="uid://ve7jaqgth8b5" path="res://sprites/raquete.png" id="1_504uo"]
+[ext_resource type="Script" path="res://cenas/raquete.gd" id="1_ks1ad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ofx0"]
 size = Vector2(2, 16)
 
-[node name="Raquete" type="StaticBody2D"]
+[node name="Jogador" type="StaticBody2D"]
+script = ExtResource("1_ks1ad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6ofx0")

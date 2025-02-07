@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfnrcqoy4wiij"]
+[gd_scene load_steps=7 format=3 uid="uid://dfnrcqoy4wiij"]
 
 [ext_resource type="Script" path="res://cenas/main.gd" id="1_ew3jr"]
 [ext_resource type="Texture2D" uid="uid://fun4bf2kq651" path="res://sprites/fundo.png" id="1_rx4eg"]
 [ext_resource type="PackedScene" uid="uid://cj6npjswocfkm" path="res://cenas/raquete.tscn" id="3_rp8f4"]
+[ext_resource type="PackedScene" uid="uid://cil2rij8delnd" path="res://cenas/bola.tscn" id="4_58teo"]
+[ext_resource type="FontFile" uid="uid://d2i3mgjap738" path="res://PressStart2P.ttf" id="5_166p1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq74"]
 size = Vector2(256, 4)
@@ -31,3 +33,14 @@ position = Vector2(14, 68)
 
 [node name="Raquete2" parent="." instance=ExtResource("3_rp8f4")]
 position = Vector2(240, 70)
+
+[node name="Bola" parent="." instance=ExtResource("4_58teo")]
+position = Vector2(128, 70)
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="PontosJogador" type="Label" parent="Hud"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_166p1")
+text = "0"
