@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfnrcqoy4wiij"]
+
+[ext_resource type="Script" path="res://cenas/main.gd" id="1_ew3jr"]
+[ext_resource type="Texture2D" uid="uid://fun4bf2kq651" path="res://sprites/fundo.png" id="1_rx4eg"]
+[ext_resource type="PackedScene" uid="uid://cj6npjswocfkm" path="res://cenas/raquete.tscn" id="3_rp8f4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq74"]
+size = Vector2(256, 4)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_ew3jr")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(128, 72)
+texture = ExtResource("1_rx4eg")
+
+[node name="ParedeCima" type="StaticBody2D" parent="."]
+position = Vector2(128, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeCima"]
+shape = SubResource("RectangleShape2D_8nq74")
+
+[node name="ParedeBaixo" type="StaticBody2D" parent="."]
+position = Vector2(128, 146)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeBaixo"]
+shape = SubResource("RectangleShape2D_8nq74")
+
+[node name="Raquete" parent="." instance=ExtResource("3_rp8f4")]
+position = Vector2(14, 68)
+
+[node name="Raquete2" parent="." instance=ExtResource("3_rp8f4")]
+position = Vector2(240, 70)
