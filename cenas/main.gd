@@ -17,3 +17,7 @@ func start_game() -> void:
 	
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_timer_da_bola_timeout() -> void:
+	$Bola.nova_bola()

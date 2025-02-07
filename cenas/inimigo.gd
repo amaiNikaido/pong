@@ -1,12 +1,15 @@
 extends StaticBody2D
 
+var posicao_bola : Vector2
+var distancia : int
+var movimento : int
 var win_height : int
-var p_height : int
-var velocidade : int = 100
+var p_height : 
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	pass # Replace with function body.
 
 

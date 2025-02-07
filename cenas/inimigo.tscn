@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7l6bv414ki1c"]
+
+[ext_resource type="Script" path="res://cenas/inimigo.gd" id="1_lxmqi"]
+[ext_resource type="Texture2D" uid="uid://ve7jaqgth8b5" path="res://sprites/raquete.png" id="1_nx4iv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_biwdf"]
+size = Vector2(2, 16)
+
+[node name="Inimigo" type="StaticBody2D"]
+script = ExtResource("1_lxmqi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nx4iv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_biwdf")
