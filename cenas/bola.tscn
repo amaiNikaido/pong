@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://cil2rij8delnd"]
 
-[ext_resource type="Script" path="res://cenas/bola.gd" id="1_a5rcf"]
+[ext_resource type="Script" path="res://bola.gd" id="1_w6dtt"]
 [ext_resource type="Texture2D" uid="uid://nu81p0m1vn43" path="res://sprites/bola.png" id="1_xsg4x"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvkne"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1ddc"]
 size = Vector2(4, 4)
 
-[node name="Bola" type="StaticBody2D"]
-script = ExtResource("1_a5rcf")
+[node name="Bola" type="CharacterBody2D"]
+script = ExtResource("1_w6dtt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xsg4x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_qvkne")
+shape = SubResource("RectangleShape2D_w1ddc")

@@ -7,6 +7,7 @@
 size = Vector2(2, 16)
 
 [node name="Inimigo" type="StaticBody2D"]
+collision_mask = 3
 script = ExtResource("1_lxmqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
