@@ -12,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	move_and_collide(direcao * velocidade * delta)
+
 
 func nova_bola():
 	position.x = lado_vencedor.x / 2

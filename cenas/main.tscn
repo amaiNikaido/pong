@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfnrcqoy4wiij"]
+[gd_scene load_steps=8 format=3 uid="uid://dfnrcqoy4wiij"]
 
 [ext_resource type="Script" path="res://cenas/main.gd" id="1_ew3jr"]
 [ext_resource type="Texture2D" uid="uid://fun4bf2kq651" path="res://sprites/fundo.png" id="1_rx4eg"]
 [ext_resource type="PackedScene" uid="uid://cj6npjswocfkm" path="res://cenas/raquete.tscn" id="3_rp8f4"]
 [ext_resource type="PackedScene" uid="uid://cil2rij8delnd" path="res://cenas/bola.tscn" id="4_58teo"]
 [ext_resource type="FontFile" uid="uid://d2i3mgjap738" path="res://PressStart2P.ttf" id="5_166p1"]
+[ext_resource type="PackedScene" uid="uid://c7l6bv414ki1c" path="res://cenas/inimigo.tscn" id="6_5o6qn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq74"]
 size = Vector2(256, 4)
@@ -61,5 +62,7 @@ vertical_alignment = 1
 [node name="TimerDaBola" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="Inimigo" parent="." instance=ExtResource("6_5o6qn")]
 
 [connection signal="timeout" from="TimerDaBola" to="." method="_on_timer_da_bola_timeout"]

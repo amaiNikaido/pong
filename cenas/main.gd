@@ -9,9 +9,9 @@ func _ready() -> void:
 
 func start_game() -> void:
 	$Raquete.position.x = 16
-#	$Raquete2.position.x = 240
+	$Inimigo.position.x = 240
 	$Raquete.position.y = 72
-#	$Raquete2.position.y = 72
+	$Inimigo.position.y = 72
 	
 	
 	
