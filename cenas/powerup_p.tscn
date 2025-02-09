@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bds7l13p35sdr"]
+
+[ext_resource type="Script" path="res://cenas/powerup_p.gd" id="1_0s2v1"]
+
+[node name="PowerupP" type="PopupPanel"]
+auto_translate_mode = 1
+visible = true
+script = ExtResource("1_0s2v1")
