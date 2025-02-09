@@ -7,7 +7,7 @@
 size = Vector2(4, 4)
 
 [node name="Bola" type="CharacterBody2D"]
-collision_mask = 6
+collision_mask = 14
 script = ExtResource("1_w6dtt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

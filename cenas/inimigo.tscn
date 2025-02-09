@@ -7,7 +7,7 @@
 size = Vector2(2, 16)
 
 [node name="Inimigo" type="StaticBody2D"]
-collision_layer = 2
+collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_lxmqi")
 
