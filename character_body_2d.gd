@@ -1,7 +1,7 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 var velocidade = 64
-var velocity = Vector2.ZERO
+var vel = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,10 +28,10 @@ func _process(delta: float) -> void:
 	$Label.text = str(Global.cor_raquete)
 	
 	if Global.cor_raquete == Global.cor_bola:
-		collision_mask != ~(1 << 1)
+		set_collision_mask_value(1, true)
 	elif Global.cor_raquete != Global.cor_bola:
-		collision_mask &= ~(1 << 1)
+		set_collision_mask_value(1, false)
 
 func _physics_process(delta: float) -> void:
-	velocity = velocity.normalized() * velocidade
-	move_and_collide(velocity * delta)
+	vel = vel.normalized() * velocidade
+	move_and_collide(vel * delta)

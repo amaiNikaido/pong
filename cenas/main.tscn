@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://cenas/main.gd" id="1_ew3jr"]
 [ext_resource type="Texture2D" uid="uid://fun4bf2kq651" path="res://sprites/fundo.png" id="1_rx4eg"]
-[ext_resource type="PackedScene" uid="uid://cj6npjswocfkm" path="res://cenas/raquete.tscn" id="3_rp8f4"]
 [ext_resource type="PackedScene" uid="uid://cil2rij8delnd" path="res://cenas/bola.tscn" id="4_58teo"]
 [ext_resource type="FontFile" uid="uid://d2i3mgjap738" path="res://PressStart2P.ttf" id="5_166p1"]
 [ext_resource type="PackedScene" uid="uid://c7l6bv414ki1c" path="res://cenas/inimigo.tscn" id="6_5o6qn"]
 [ext_resource type="Script" path="res://cenas/timer_da_bola.gd" id="6_u2er3"]
+[ext_resource type="PackedScene" uid="uid://byn1qqiwxe7df" path="res://cenas/jogador.tscn" id="7_nc0ew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq74"]
 size = Vector2(256, 4)
@@ -26,24 +26,22 @@ texture = ExtResource("1_rx4eg")
 
 [node name="ParedeCima" type="StaticBody2D" parent="."]
 position = Vector2(128, -2)
-collision_layer = 2
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeCima"]
 shape = SubResource("RectangleShape2D_8nq74")
 
 [node name="ParedeBaixo" type="StaticBody2D" parent="."]
 position = Vector2(128, 146)
-collision_layer = 2
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeBaixo"]
 shape = SubResource("RectangleShape2D_8nq74")
 
-[node name="Raquete" parent="." instance=ExtResource("3_rp8f4")]
-position = Vector2(14, 68)
-
 [node name="Bola" parent="." instance=ExtResource("4_58teo")]
 position = Vector2(128, 70)
-collision_mask = 3
 
 [node name="Hud" type="CanvasLayer" parent="."]
 
@@ -102,6 +100,9 @@ theme_override_font_sizes/font_size = 8
 text = "Game Over!\\n"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Jogador" parent="." instance=ExtResource("7_nc0ew")]
+position = Vector2(128, 72)
 
 [connection signal="timeout" from="TimerDaBola" to="." method="_on_timer_da_bola_timeout"]
 [connection signal="body_entered" from="GolDireito" to="." method="_on_gol_direito_body_entered"]

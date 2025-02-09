@@ -6,6 +6,7 @@ const ACELERACAO : int = 10
 var velocidade : int
 var direcao : Vector2
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	lado_vencedor = get_viewport_rect().size
@@ -16,6 +17,17 @@ func _process(delta: float) -> void:
 	if collision:
 		direcao = direcao.bounce(collision.get_normal())
 		velocidade += ACELERACAO
+		
+		Global.cor_bola += 1
+		if Global.cor_bola > 3:
+			Global.cor_bola = 0
+	
+	$Label.text = str(Global.cor_bola)
+	
+	if Global.cor_raquete == Global.cor_bola:
+		set_collision_mask_value(2, true)
+	elif Global.cor_raquete != Global.cor_bola:
+		set_collision_mask_value(2, false)
 
 func _physics_process(delta: float) -> void:
 	#var colisao = move_and_collide(direcao * velocidade * delta)

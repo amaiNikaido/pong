@@ -9,9 +9,9 @@ func _ready() -> void:
 
 func start_game() -> void:
 	$Fim.hide()
-	$Raquete.position.x = 16
+	$Jogador.position.x = 16
 	$Inimigo.position.x = 240
-	$Raquete.position.y = 72
+	$Jogador.position.y = 72
 	$Inimigo.position.y = 72
 	$Hud/PontosJogador.text = '0'
 	$Hud/PontosInimigo.text = '0'
