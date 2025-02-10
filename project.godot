@@ -28,6 +28,10 @@ window/size/viewport_height=144
 
 project/assembly_name="pong"
 
+[global_group]
+
+PowerUps=""
+
 [input]
 
 Cima={

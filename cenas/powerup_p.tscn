@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bds7l13p35sdr"]
+[gd_scene load_steps=2 format=3 uid="uid://f1i5yxmhvpar"]
 
-[ext_resource type="Script" path="res://cenas/powerup_p.gd" id="1_0s2v1"]
+[sub_resource type="GDScript" id="GDScript_0yknc"]
+script/source = "extends PopupPanel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="PowerupP" type="PopupPanel"]
 auto_translate_mode = 1
 visible = true
-script = ExtResource("1_0s2v1")
+script = SubResource("GDScript_0yknc")
