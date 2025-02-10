@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfnrcqoy4wiij"]
+[gd_scene load_steps=14 format=3 uid="uid://dfnrcqoy4wiij"]
 
 [ext_resource type="Script" path="res://cenas/main.gd" id="1_ew3jr"]
 [ext_resource type="Texture2D" uid="uid://fun4bf2kq651" path="res://sprites/fundo.png" id="1_rx4eg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://cenas/timer_da_bola.gd" id="6_u2er3"]
 [ext_resource type="PackedScene" uid="uid://byn1qqiwxe7df" path="res://cenas/jogador.tscn" id="7_nc0ew"]
 [ext_resource type="Script" path="res://cenas/p.gd" id="8_m6t7d"]
+[ext_resource type="Script" path="res://cenas/random_pop_up.gd" id="9_334rx"]
 [ext_resource type="Script" path="res://cenas/o.gd" id="9_oqg3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq74"]
@@ -120,14 +121,18 @@ one_shot = true
 autostart = true
 
 [node name="RandomPopUp" type="Timer" parent="PowerUps/P"]
+one_shot = true
+autostart = true
+script = ExtResource("9_334rx")
 
 [node name="O" type="PopupPanel" parent="PowerUps"]
 script = ExtResource("9_oqg3h")
 
 [node name="OTimer" type="Timer" parent="PowerUps/O"]
 
-[connection signal="ponto" from="." to="PowerUps/P" method="_on_main_ponto"]
 [connection signal="timeout" from="TimerDaBola" to="." method="_on_timer_da_bola_timeout"]
 [connection signal="body_entered" from="GolDireito" to="." method="_on_gol_direito_body_entered"]
 [connection signal="body_entered" from="GolEsquerdo" to="." method="_on_gol_esquerdo_body_entered"]
 [connection signal="timeout" from="PowerUps/P/PTimer" to="PowerUps/P" method="_on_p_timer_timeout"]
+[connection signal="timeout" from="PowerUps/P/PTimer" to="PowerUps/P/RandomPopUp" method="_on_p_timer_timeout"]
+[connection signal="timeout" from="PowerUps/P/RandomPopUp" to="PowerUps/P" method="_on_random_pop_up_timeout"]

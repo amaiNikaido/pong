@@ -34,13 +34,13 @@ func _on_timer_da_bola_timeout() -> void:
 func _on_gol_direito_body_entered(body):
 	Global.score[0] += 1
 	$Hud/PontosJogador.text = str(Global.score[0])
-	ponto.emit()
+	#ponto.emit()
 	if Global.score[0] < 3:
 		$TimerDaBola.start()
 
 func _on_gol_esquerdo_body_entered(body):
 	Global.score[1] += 1
 	$Hud/PontosInimigo.text = str(Global.score[1])
-	ponto.emit()
+	#ponto.emit()
 	if Global.score[1] < 3:
 		$TimerDaBola.start()
