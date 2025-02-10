@@ -51,6 +51,3 @@ func checa_botao_press(delt: float) -> void:
 		pass
 	elif Input.is_action_just_pressed("G"):
 		pass
-
-func p() -> void:
-	

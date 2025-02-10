@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://f1i5yxmhvpar"]
+[gd_scene load_steps=2 format=3 uid="uid://bxo8astdlgf0"]
 
 [sub_resource type="GDScript" id="GDScript_0yknc"]
 script/source = "extends PopupPanel

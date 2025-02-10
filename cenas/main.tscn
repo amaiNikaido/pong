@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dfnrcqoy4wiij"]
+[gd_scene load_steps=13 format=3 uid="uid://dfnrcqoy4wiij"]
 
 [ext_resource type="Script" path="res://cenas/main.gd" id="1_ew3jr"]
 [ext_resource type="Texture2D" uid="uid://fun4bf2kq651" path="res://sprites/fundo.png" id="1_rx4eg"]
@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://byn1qqiwxe7df" path="res://cenas/jogador.tscn" id="7_nc0ew"]
 [ext_resource type="Script" path="res://cenas/p.gd" id="8_m6t7d"]
 [ext_resource type="Script" path="res://cenas/o.gd" id="9_oqg3h"]
-[ext_resource type="Script" path="res://cenas/n.gd" id="10_n5urn"]
-[ext_resource type="Script" path="res://cenas/g.gd" id="11_uuv34"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq74"]
 size = Vector2(256, 4)
@@ -113,20 +111,23 @@ position = Vector2(128, 72)
 [node name="PowerUps" type="CanvasLayer" parent="."]
 
 [node name="P" type="PopupPanel" parent="PowerUps" groups=["PowerUps"]]
+position = Vector2i(115, 15)
+size = Vector2i(25, 25)
 script = ExtResource("8_m6t7d")
 
 [node name="PTimer" type="Timer" parent="PowerUps/P"]
+one_shot = true
+autostart = true
 
-[node name="O" type="PopupPanel" parent="PowerUps" groups=["PowerUps"]]
+[node name="RandomPopUp" type="Timer" parent="PowerUps/P"]
+
+[node name="O" type="PopupPanel" parent="PowerUps"]
 script = ExtResource("9_oqg3h")
 
-[node name="N" type="PopupPanel" parent="PowerUps" groups=["PowerUps"]]
-script = ExtResource("10_n5urn")
-
-[node name="G" type="PopupPanel" parent="PowerUps" groups=["PowerUps"]]
-script = ExtResource("11_uuv34")
+[node name="OTimer" type="Timer" parent="PowerUps/O"]
 
 [connection signal="ponto" from="." to="PowerUps/P" method="_on_main_ponto"]
 [connection signal="timeout" from="TimerDaBola" to="." method="_on_timer_da_bola_timeout"]
 [connection signal="body_entered" from="GolDireito" to="." method="_on_gol_direito_body_entered"]
 [connection signal="body_entered" from="GolEsquerdo" to="." method="_on_gol_esquerdo_body_entered"]
+[connection signal="timeout" from="PowerUps/P/PTimer" to="PowerUps/P" method="_on_p_timer_timeout"]
