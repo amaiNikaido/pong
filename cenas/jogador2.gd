@@ -22,3 +22,22 @@ func _process(delta: float) -> void:
 		$Sprite2D.texture = load("res://sprites/raquetes/raquete3.png")
 	elif  Global.cor_bola == 3:
 		$Sprite2D.texture = load("res://sprites/raquetes/raquete4.png")
+
+
+func lentidao() -> void:
+	velocidade = 32
+	await get_tree().create_timer(5.0).timeout
+	velocidade = 64
+	
+func trava():
+	piscar()
+	set_collision_mask_value(1, false)
+	await get_tree().create_timer(1).timeout
+	set_collision_mask_value(1, true)
+
+func piscar():
+	for i in range(5):  # 5 piscadas
+		$Sprite2D.visible = false
+		await get_tree().create_timer(0.1).timeout  # Espera 0.1s
+		$Sprite2D.visible = true
+		await get_tree().create_timer(0.1).timeout  # Espera 0.1s

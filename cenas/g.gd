@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 		if chance_reaparecer():
 			$RandomPopUp4.start()
 		
-		
 func g_power_up() -> void:
 	##powerup
 	pass

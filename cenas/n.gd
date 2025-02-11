@@ -1,5 +1,6 @@
 extends PopupPanel
 signal power_up
+var animacao : int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,7 +13,6 @@ func _process(delta: float) -> void:
 		power_up.emit()
 		if chance_reaparecer():
 			$RandomPopUp3.start()
-		
 	
 func n_power_up() -> void:
 	##powerup
