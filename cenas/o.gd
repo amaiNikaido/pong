@@ -9,6 +9,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("O") and visible:
 		print("o")
+		$"../../Jogador2".trava()
 		hide()
 		power_up.emit()
 		if chance_reaparecer():

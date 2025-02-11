@@ -41,3 +41,11 @@ func piscar():
 		await get_tree().create_timer(0.1).timeout  # Espera 0.1s
 		$Sprite2D.visible = true
 		await get_tree().create_timer(0.1).timeout  # Espera 0.1s
+
+
+func _on_main_g() -> void:
+	lentidao()
+
+
+func _on_main_o() -> void:
+	trava()

@@ -2,6 +2,7 @@ extends Node2D
 
 
 
+
 # Called when the node enters tdhe scene tree for the first time.
 func _ready() -> void:
 	start_game()
@@ -45,19 +46,3 @@ func _on_gol_esquerdo_body_entered(body):
 	$Hud/PontosInimigo.text = str(Global.score[1])
 	if Global.score[1] < 6:
 		$TimerDaBola.start()
-
-
-func _on_p_power_up() -> void:
-	$"../../Jogador".aumento()
-
-
-func _on_o_power_up() -> void:
-	$"../../Jogador2".trava()
-
-
-func _on_n_power_up() -> void:
-	$"../../Jogador"._troca()
-
-
-func _on_g_power_up() -> void:
-	$"../../Jogador2".lentidao()
