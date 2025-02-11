@@ -12,10 +12,6 @@ func _process(delta: float) -> void:
 		hide()
 		if chance_reaparecer():
 			$RandomPopUp2.start()
-		
-func o_power_up() -> void:
-	##powerup
-	pass
 	
 
 func _on_random_pop_up_2_timeout() -> void:
@@ -26,6 +22,7 @@ func _on_random_pop_up_2_timeout() -> void:
 func _on_timer_segundo_2_timeout() -> void:
 	hide()
 	$RandomPopUp2.start()
+	
 	
 func chance_reaparecer() -> bool:
 	## Checa qual a chance de o power up reaparecer apos ser utilizado com sucesso

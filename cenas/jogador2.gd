@@ -32,20 +32,12 @@ func lentidao() -> void:
 func trava() -> void:
 	piscar()
 	set_collision_mask_value(1, false)
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(3).timeout
 	set_collision_mask_value(1, true)
 
 func piscar():
-	for i in range(5):  # 5 piscadas
+	for i in range(8):  # 8 piscadas
 		$Sprite2D.visible = false
 		await get_tree().create_timer(0.1).timeout  # Espera 0.1s
 		$Sprite2D.visible = true
 		await get_tree().create_timer(0.1).timeout  # Espera 0.1s
-
-
-func _on_main_g() -> void:
-	lentidao()
-
-
-func _on_main_o() -> void:
-	trava()

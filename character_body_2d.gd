@@ -68,7 +68,7 @@ func retorno() -> void:
 		
 func _troca():
 	troca = true
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(10).timeout
 	troca = false
 
 

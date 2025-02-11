@@ -31,6 +31,12 @@ window/stretch/aspect="expand"
 
 project/assembly_name="pong"
 
+[file_customization]
+
+folder_colors={
+"res://sprites/": "red"
+}
+
 [global_group]
 
 PowerUps=""
