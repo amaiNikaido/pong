@@ -6,10 +6,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	set_wait_time(tempo_spawn)
+#func _process(delta: float) -> void:
+#	set_wait_time(tempo_spawn)
 
 
-func _on_p_timer_timeout() -> void:
-	tempo_spawn = randi_range(1,20)
+#func _on_p_timer_timeout() -> void:
+#	tempo_spawn = randi_range(1,20)
 	

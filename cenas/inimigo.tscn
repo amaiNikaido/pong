@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7l6bv414ki1c"]
 
 [ext_resource type="Script" path="res://cenas/inimigo.gd" id="1_lxmqi"]
-[ext_resource type="Texture2D" uid="uid://ve7jaqgth8b5" path="res://sprites/raquete.png" id="1_nx4iv"]
+[ext_resource type="Texture2D" uid="uid://dvi7g6aehxhbv" path="res://sprites/raquetes/raquete1.png" id="2_vbw2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_biwdf"]
-size = Vector2(2, 16)
+size = Vector2(12, 60)
 
 [node name="Inimigo" type="StaticBody2D"]
 collision_layer = 8
@@ -12,7 +12,7 @@ collision_mask = 5
 script = ExtResource("1_lxmqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_nx4iv")
+texture = ExtResource("2_vbw2h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_biwdf")

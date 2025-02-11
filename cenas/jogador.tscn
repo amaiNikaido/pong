@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://byn1qqiwxe7df"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_3p6ss"]
-[ext_resource type="Texture2D" uid="uid://ve7jaqgth8b5" path="res://sprites/raquete.png" id="2_pjk4h"]
+[ext_resource type="Texture2D" uid="uid://dvi7g6aehxhbv" path="res://sprites/raquetes/raquete1.png" id="2_b43vy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1g66"]
-size = Vector2(2, 16)
+size = Vector2(12, 60)
 
 [node name="Jogador" type="CharacterBody2D"]
 collision_layer = 2
@@ -12,7 +12,7 @@ collision_mask = 5
 script = ExtResource("1_3p6ss")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_pjk4h")
+texture = ExtResource("2_b43vy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_a1g66")

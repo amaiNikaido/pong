@@ -26,6 +26,14 @@ func _process(delta: float) -> void:
 			Global.cor_raquete = 3
 	
 	$Label.text = str(Global.cor_raquete)
+	if Global.cor_raquete == 0:
+		$Sprite2D.texture = load("res://sprites/raquetes/raquete1.png")
+	elif  Global.cor_raquete == 1:
+		$Sprite2D.texture = load("res://sprites/raquetes/raquete2.png")
+	elif  Global.cor_raquete == 2:
+		$Sprite2D.texture = load("res://sprites/raquetes/raquete3.png")
+	elif  Global.cor_raquete == 3:
+		$Sprite2D.texture = load("res://sprites/raquetes/raquete4.png")
 	
 	if Global.cor_raquete == Global.cor_bola:
 		set_collision_mask_value(1, true)

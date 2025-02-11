@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj6npjswocfkm"]
+[gd_scene load_steps=4 format=3 uid="uid://b6lc6qxpq1dqu"]
 
 [ext_resource type="Texture2D" uid="uid://ve7jaqgth8b5" path="res://sprites/raquete.png" id="1_504uo"]
 [ext_resource type="Script" path="res://cenas/raquete.gd" id="1_ks1ad"]

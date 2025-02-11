@@ -18,6 +18,8 @@ func _process(_delta: float) -> void:
 		collision_mask != ~(1 << 1)
 	elif Global.cor_raquete != Global.cor_bola:
 		collision_mask &= ~(1 << 1)
+		
+	
 
 func _physics_process(delta: float) -> void:
 	velocity = velocity.normalized() * velocidade
