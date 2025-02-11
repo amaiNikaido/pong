@@ -1,5 +1,4 @@
 extends PopupPanel
-signal power_up
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,8 +10,7 @@ func _process(delta: float) -> void:
 		print("p")
 		$"../../Jogador".aumento()
 		hide()
-		power_up.emit()
-		if chance_reaparecer():
+		if chance_reaparecer() and Global.size_up < 2:
 			$RandomPopUp1.start()
 
 
@@ -23,7 +21,9 @@ func _on_random_pop_up_1_timeout() -> void:
 
 func _on_timer_segundo_1_timeout() -> void:
 	hide()
-	$RandomPopUp1.start()
+	#limita a 3 aumentos
+	if Global.size_up < 2:
+		$RandomPopUp1.start()
 	
 func chance_reaparecer() -> bool:
 	## Checa qual a chance de o power up reaparecer apos ser utilizado com sucesso

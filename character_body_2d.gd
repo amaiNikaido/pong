@@ -58,18 +58,23 @@ func _physics_process(delta: float) -> void:
 
 
 func aumento() -> void:
+	Global.size_up += 1
 	$Sprite2D.scale *= Vector2(1, 1.5)
 	$CollisionShape2D.shape.size *= Vector2(1, 1.5)
-	
+
+func retorno() -> void:
+	$Sprite2D.scale /= Vector2(1, 1 * Global.size_up)
+	$CollisionShape2D.shape.size /= Vector2(1, 1* Global.size_up)
+		
 func _troca():
 	troca = true
 	await get_tree().create_timer(5.0).timeout
 	troca = false
 
 
-func _on_main_p() -> void:
-	aumento()
+#func _on_main_p() -> void:
+#	aumento()
 
 
-func _on_main_n() -> void:
-	_troca()
+#func _on_main_n() -> void:
+#	_troca()

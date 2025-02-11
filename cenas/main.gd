@@ -17,13 +17,14 @@ func start_game() -> void:
 	Global.score[0] = 0
 	$Hud/PontosJogador.text = str(Global.score[0])
 	$Hud/PontosInimigo.text = str(Global.score[1])
-	
+	Global.size_up = 0
 	
 	
 func _process(delta: float) -> void:
 	if Global.score[0] == 6 or Global.score[1] == 6:
 		$Fim.show()
 		if Input.is_action_just_pressed("y"):
+			$Jogador.retorno()
 			start_game()
 			$Bola.nova_bola()
 		elif  Input.is_action_just_pressed("n"):

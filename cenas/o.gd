@@ -1,5 +1,4 @@
 extends PopupPanel
-signal power_up
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,7 +10,6 @@ func _process(delta: float) -> void:
 		print("o")
 		$"../../Jogador2".trava()
 		hide()
-		power_up.emit()
 		if chance_reaparecer():
 			$RandomPopUp2.start()
 		
