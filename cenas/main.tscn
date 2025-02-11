@@ -33,7 +33,7 @@ texture = ExtResource("2_cscmh")
 [node name="ParedeCima" type="StaticBody2D" parent="."]
 position = Vector2(128, -2)
 collision_layer = 4
-collision_mask = 3
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeCima"]
 position = Vector2(128, 16)
@@ -42,13 +42,10 @@ shape = SubResource("RectangleShape2D_8nq74")
 [node name="ParedeBaixo" type="StaticBody2D" parent="."]
 position = Vector2(256, 290)
 collision_layer = 4
-collision_mask = 3
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeBaixo"]
 shape = SubResource("RectangleShape2D_8nq74")
-
-[node name="Bola" parent="." instance=ExtResource("4_58teo")]
-position = Vector2(128, 70)
 
 [node name="Hud" type="CanvasLayer" parent="."]
 
@@ -99,22 +96,8 @@ collision_layer = 2
 position = Vector2(-1.5, 152)
 shape = SubResource("RectangleShape2D_efaaj")
 
-[node name="Fim" type="Label" parent="."]
-offset_left = 54.0
-offset_top = 60.0
-offset_right = 214.0
-offset_bottom = 83.0
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("5_166p1")
-theme_override_font_sizes/font_size = 8
-text = "Game Over!
-Pressione ENTER para recomeçar."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
 [node name="Jogador" parent="." instance=ExtResource("7_nc0ew")]
-position = Vector2(128, 72)
+position = Vector2(121, 145)
 
 [node name="PowerUps" type="CanvasLayer" parent="."]
 
@@ -138,6 +121,7 @@ script = ExtResource("9_oqg3h")
 [node name="OTimer" type="Timer" parent="PowerUps/O"]
 
 [node name="Jogador2" parent="." instance=ExtResource("10_lpkg2")]
+position = Vector2(412, 132)
 
 [node name="Pontuacao1" type="Sprite2D" parent="."]
 position = Vector2(227, 43)
@@ -150,6 +134,24 @@ texture = ExtResource("12_jymr7")
 [node name="Centro1" type="Sprite2D" parent="."]
 position = Vector2(254, 152)
 texture = ExtResource("13_negfv")
+
+[node name="Bola" parent="." instance=ExtResource("4_58teo")]
+position = Vector2(253, 153)
+
+[node name="Fim" type="Label" parent="."]
+visible = false
+offset_left = 63.0
+offset_top = 125.0
+offset_right = 447.0
+offset_bottom = 179.0
+theme_override_colors/font_color = Color(0.920995, 0.920995, 0.920995, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_166p1")
+text = "FIM DE JOGO
+Você quer jogar de novo?
+y/n"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="TimerDaBola" to="." method="_on_timer_da_bola_timeout"]
 [connection signal="body_entered" from="GolDireito" to="." method="_on_gol_direito_body_entered"]

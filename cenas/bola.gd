@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-var lado_vencedor : Vector2
 const VELOCIDADE_INICIAL : int = 128
 const ACELERACAO : int = 16
 var velocidade : int
@@ -9,7 +8,7 @@ var direcao : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	lado_vencedor = get_viewport_rect().size
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -38,13 +37,10 @@ func _process(delta: float) -> void:
 	elif  Global.cor_bola == 3:
 		$Sprite2D.texture = load("res://sprites/bolas/Bola4.png")
 
-func _physics_process(delta: float) -> void:
-
-	pass
 
 func nova_bola():
-	position.x = lado_vencedor.x / 2
-	position.y = randi_range(100, lado_vencedor.y - 100)
+	position.x = 256
+	position.y = 144
 	velocidade = VELOCIDADE_INICIAL
 	direcao = direcao_aleatoria()
 	
