@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dfnrcqoy4wiij"]
+[gd_scene load_steps=25 format=3 uid="uid://dfnrcqoy4wiij"]
 
 [ext_resource type="Script" path="res://cenas/main.gd" id="1_ew3jr"]
 [ext_resource type="Texture2D" uid="uid://dgb53r44pklye" path="res://sprites/Fundo/fundo.png" id="2_cscmh"]
@@ -8,11 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://byn1qqiwxe7df" path="res://cenas/jogador.tscn" id="7_nc0ew"]
 [ext_resource type="Script" path="res://cenas/p.gd" id="8_m6t7d"]
 [ext_resource type="Script" path="res://cenas/random_pop_up.gd" id="9_334rx"]
+[ext_resource type="Script" path="res://cenas/n.gd" id="9_nf546"]
 [ext_resource type="Script" path="res://cenas/o.gd" id="9_oqg3h"]
+[ext_resource type="Script" path="res://cenas/random_pop_up_2.gd" id="9_ote4t"]
 [ext_resource type="PackedScene" uid="uid://bbyx38lnm6dif" path="res://cenas/character_body_2d.tscn" id="10_lpkg2"]
+[ext_resource type="Script" path="res://cenas/g.gd" id="10_pt5rg"]
 [ext_resource type="Texture2D" uid="uid://8xxhxqyofuwh" path="res://sprites/Fundo/Borda_Pontuacao/Pontuacao1.png" id="11_il2dj"]
+[ext_resource type="Script" path="res://cenas/random_pop_up_3.gd" id="11_wc2xc"]
 [ext_resource type="Texture2D" uid="uid://bdq6egp82j26m" path="res://sprites/Fundo/Borda_Pontuacao/Pontuacao2.png" id="12_jymr7"]
 [ext_resource type="Texture2D" uid="uid://bt3pvb83g1yfv" path="res://sprites/Fundo/Centro/centro1.png" id="13_negfv"]
+[ext_resource type="Script" path="res://cenas/random_pop_up_4.gd" id="13_pl80j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq74"]
 size = Vector2(512, 4)
@@ -22,6 +27,14 @@ size = Vector2(4, 272)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efaaj"]
 size = Vector2(3, 272)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sempe"]
+bg_color = Color(0.978818, 0.315498, 0.575131, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ofby"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsmb4"]
+bg_color = Color(0.6, 0.027451, 0.0901961, 1)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_ew3jr")
@@ -101,24 +114,64 @@ position = Vector2(121, 145)
 
 [node name="PowerUps" type="CanvasLayer" parent="."]
 
-[node name="P" type="PopupPanel" parent="PowerUps" groups=["PowerUps"]]
-position = Vector2i(115, 15)
+[node name="P" type="PopupPanel" parent="PowerUps"]
+position = Vector2i(244, 60)
 size = Vector2i(25, 25)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sempe")
 script = ExtResource("8_m6t7d")
 
-[node name="PTimer" type="Timer" parent="PowerUps/P"]
-one_shot = true
-autostart = true
-
-[node name="RandomPopUp" type="Timer" parent="PowerUps/P"]
+[node name="RandomPopUp1" type="Timer" parent="PowerUps/P"]
 one_shot = true
 autostart = true
 script = ExtResource("9_334rx")
 
+[node name="TimerSegundo1" type="Timer" parent="PowerUps/P"]
+one_shot = true
+autostart = true
+
 [node name="O" type="PopupPanel" parent="PowerUps"]
+position = Vector2i(244, 60)
+size = Vector2i(25, 25)
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ofby")
 script = ExtResource("9_oqg3h")
 
-[node name="OTimer" type="Timer" parent="PowerUps/O"]
+[node name="RandomPopUp2" type="Timer" parent="PowerUps/O"]
+one_shot = true
+autostart = true
+script = ExtResource("9_ote4t")
+
+[node name="TimerSegundo2" type="Timer" parent="PowerUps/O"]
+one_shot = true
+autostart = true
+
+[node name="N" type="PopupPanel" parent="PowerUps"]
+position = Vector2i(244, 60)
+size = Vector2i(25, 25)
+theme_override_styles/panel = SubResource("StyleBoxFlat_tsmb4")
+script = ExtResource("9_nf546")
+
+[node name="RandomPopUp3" type="Timer" parent="PowerUps/N"]
+one_shot = true
+autostart = true
+script = ExtResource("11_wc2xc")
+
+[node name="TimerSegundo3" type="Timer" parent="PowerUps/N"]
+one_shot = true
+autostart = true
+
+[node name="G" type="PopupPanel" parent="PowerUps"]
+position = Vector2i(244, 60)
+size = Vector2i(25, 25)
+script = ExtResource("10_pt5rg")
+
+[node name="RandomPopUp4" type="Timer" parent="PowerUps/G"]
+one_shot = true
+autostart = true
+script = ExtResource("13_pl80j")
+
+[node name="TimerSegundo4" type="Timer" parent="PowerUps/G"]
+one_shot = true
+autostart = true
 
 [node name="Jogador2" parent="." instance=ExtResource("10_lpkg2")]
 position = Vector2(412, 132)
@@ -156,6 +209,15 @@ vertical_alignment = 1
 [connection signal="timeout" from="TimerDaBola" to="." method="_on_timer_da_bola_timeout"]
 [connection signal="body_entered" from="GolDireito" to="." method="_on_gol_direito_body_entered"]
 [connection signal="body_entered" from="GolEsquerdo" to="." method="_on_gol_esquerdo_body_entered"]
-[connection signal="timeout" from="PowerUps/P/PTimer" to="PowerUps/P" method="_on_p_timer_timeout"]
-[connection signal="timeout" from="PowerUps/P/PTimer" to="PowerUps/P/RandomPopUp" method="_on_p_timer_timeout"]
-[connection signal="timeout" from="PowerUps/P/RandomPopUp" to="PowerUps/P" method="_on_random_pop_up_timeout"]
+[connection signal="timeout" from="PowerUps/P/RandomPopUp1" to="PowerUps/P" method="_on_random_pop_up_1_timeout"]
+[connection signal="timeout" from="PowerUps/P/TimerSegundo1" to="PowerUps/P" method="_on_timer_segundo_1_timeout"]
+[connection signal="timeout" from="PowerUps/P/TimerSegundo1" to="PowerUps/P/RandomPopUp1" method="_on_timer_segundo_1_timeout"]
+[connection signal="timeout" from="PowerUps/O/RandomPopUp2" to="PowerUps/O" method="_on_random_pop_up_2_timeout"]
+[connection signal="timeout" from="PowerUps/O/TimerSegundo2" to="PowerUps/O" method="_on_timer_segundo_2_timeout"]
+[connection signal="timeout" from="PowerUps/O/TimerSegundo2" to="PowerUps/O/RandomPopUp2" method="_on_timer_segundo_2_timeout"]
+[connection signal="timeout" from="PowerUps/N/RandomPopUp3" to="PowerUps/N" method="_on_random_pop_up_3_timeout"]
+[connection signal="timeout" from="PowerUps/N/TimerSegundo3" to="PowerUps/N" method="_on_timer_segundo_3_timeout"]
+[connection signal="timeout" from="PowerUps/N/TimerSegundo3" to="PowerUps/N/RandomPopUp3" method="_on_timer_segundo_3_timeout"]
+[connection signal="timeout" from="PowerUps/G/RandomPopUp4" to="PowerUps/G" method="_on_random_pop_up_4_timeout"]
+[connection signal="timeout" from="PowerUps/G/TimerSegundo4" to="PowerUps/G" method="_on_timer_segundo_4_timeout"]
+[connection signal="timeout" from="PowerUps/G/TimerSegundo4" to="PowerUps/G/RandomPopUp4" method="_on_timer_segundo_4_timeout"]

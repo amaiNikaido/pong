@@ -7,31 +7,31 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("P") and visible:
+	if Input.is_action_just_pressed("G") and visible:
 		hide()
-		p_power_up()
+		g_power_up()
 		if chance_reaparecer():
-			$RandomPopUp1.start()
+			$RandomPopUp4.start()
 		
 		
-func p_power_up() -> void:
-	##Aumenta o tamanho da Raquete
+func g_power_up() -> void:
+	##powerup
 	pass
 	
 
-func _on_random_pop_up_1_timeout() -> void:
-	$TimerSegundo1.start()
+func _on_random_pop_up_4_timeout() -> void:
+	$TimerSegundo4.start()
 	popup()
 
 
-func _on_timer_segundo_1_timeout() -> void:
+func _on_timer_segundo_4_timeout() -> void:
 	hide()
-	$RandomPopUp1.start()
+	$RandomPopUp4.start()
 	
 func chance_reaparecer() -> bool:
 	## Checa qual a chance de o power up reaparecer apos ser utilizado com sucesso
-	var chance = randi_range(1,10)
-	if chance >= 5:
+	var chance = randi_range(0,26)
+	if chance >= 15:
 		return true
 	else: 
 		return false
