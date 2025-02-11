@@ -1,5 +1,5 @@
 extends PopupPanel
-
+signal power_up
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -9,7 +9,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("O") and visible:
 		hide()
-		o_power_up()
+		power_up.emit()
 		if chance_reaparecer():
 			$RandomPopUp2.start()
 		

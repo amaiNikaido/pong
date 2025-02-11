@@ -1,5 +1,5 @@
 extends PopupPanel
-
+signal power_up
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -9,15 +9,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("P") and visible:
 		hide()
-		p_power_up()
+		power_up.emit()
 		if chance_reaparecer():
 			$RandomPopUp1.start()
-		
-		
-func p_power_up() -> void:
-	##Aumenta o tamanho da Raquete
-	pass
-	
+
 
 func _on_random_pop_up_1_timeout() -> void:
 	$TimerSegundo1.start()

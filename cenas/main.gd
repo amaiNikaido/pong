@@ -1,5 +1,4 @@
 extends Node2D
-signal ponto
 
 
 
@@ -38,13 +37,27 @@ func _on_timer_da_bola_timeout() -> void:
 func _on_gol_direito_body_entered(body):
 	Global.score[0] += 1
 	$Hud/PontosJogador.text = str(Global.score[0])
-	#ponto.emit()
 	if Global.score[0] < 6:
 		$TimerDaBola.start()
 
 func _on_gol_esquerdo_body_entered(body):
 	Global.score[1] += 1
 	$Hud/PontosInimigo.text = str(Global.score[1])
-	#ponto.emit()
 	if Global.score[1] < 6:
 		$TimerDaBola.start()
+
+
+func _on_p_power_up() -> void:
+	pass # Replace with function body.
+
+
+func _on_o_power_up() -> void:
+	pass # Replace with function body.
+
+
+func _on_n_power_up() -> void:
+	pass # Replace with function body.
+
+
+func _on_g_power_up() -> void:
+	pass # Replace with function body.
