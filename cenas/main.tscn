@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dfnrcqoy4wiij"]
+[gd_scene load_steps=36 format=3 uid="uid://dfnrcqoy4wiij"]
 
 [ext_resource type="Script" path="res://cenas/main.gd" id="1_ew3jr"]
 [ext_resource type="Texture2D" uid="uid://dgb53r44pklye" path="res://sprites/Fundo/fundo.png" id="2_cscmh"]
@@ -6,8 +6,10 @@
 [ext_resource type="FontFile" uid="uid://d2i3mgjap738" path="res://PressStart2P.ttf" id="5_166p1"]
 [ext_resource type="Script" path="res://cenas/timer_da_bola.gd" id="6_u2er3"]
 [ext_resource type="PackedScene" uid="uid://byn1qqiwxe7df" path="res://cenas/jogador.tscn" id="7_nc0ew"]
+[ext_resource type="Texture2D" uid="uid://dscbonslslpgo" path="res://sprites/Power Ups/Aumento/Aumento1.png" id="8_f2aee"]
 [ext_resource type="Script" path="res://cenas/p.gd" id="8_m6t7d"]
 [ext_resource type="Texture2D" uid="uid://de838btiagoe5" path="res://sprites/Power Ups/Trava/Trava1.png" id="8_vevdv"]
+[ext_resource type="Texture2D" uid="uid://bgtaup5obr1tm" path="res://sprites/Power Ups/Aumento/Aumento2.png" id="9_8lbna"]
 [ext_resource type="Script" path="res://cenas/random_pop_up.gd" id="9_334rx"]
 [ext_resource type="Texture2D" uid="uid://c8y5e0pl2m7ts" path="res://sprites/Power Ups/Trava/Trava2.png" id="9_henju"]
 [ext_resource type="Script" path="res://cenas/n.gd" id="9_nf546"]
@@ -34,7 +36,21 @@ size = Vector2(4, 272)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efaaj"]
 size = Vector2(3, 272)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t5wv6"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_5qwma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_f2aee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8lbna")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecver"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gp4er"]
 animations = [{
@@ -163,8 +179,8 @@ visible = false
 transparent_bg = true
 position = Vector2i(244, 60)
 size = Vector2i(41, 60)
+visible = true
 transparent = true
-theme_override_styles/panel = SubResource("StyleBoxTexture_t5wv6")
 script = ExtResource("8_m6t7d")
 
 [node name="RandomPopUp1" type="Timer" parent="PowerUps/P"]
@@ -179,15 +195,13 @@ autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PowerUps/P"]
 position = Vector2(20, 30)
-sprite_frames = SubResource("SpriteFrames_gp4er")
+sprite_frames = SubResource("SpriteFrames_5qwma")
 autoplay = "default"
-frame_progress = 0.360829
 
 [node name="O" type="PopupPanel" parent="PowerUps"]
-transparent_bg = true
 position = Vector2i(244, 60)
 size = Vector2i(41, 60)
-transparent = true
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ecver")
 script = ExtResource("9_oqg3h")
 
 [node name="RandomPopUp2" type="Timer" parent="PowerUps/O"]

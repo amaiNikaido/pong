@@ -29,7 +29,7 @@ func lentidao() -> void:
 	await get_tree().create_timer(5.0).timeout
 	velocidade = 64
 	
-func trava():
+func trava() -> void:
 	piscar()
 	set_collision_mask_value(1, false)
 	await get_tree().create_timer(1).timeout
